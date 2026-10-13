@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xumi – Pocket-sized Interactive Desk Companion Robot</title>
+    <meta name="description" content="Meet Xumi, an expressive, touch-responsive desktop companion robot crafted by Yug Thakar. Zero subscriptions, pure personality.">
+    
+    <!-- Design Fonts: Plus Jakarta Sans for clean geometric layout & JetBrains Mono for hardware telemetry -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Engineering Blueprint Grid Background Overlay -->
+    <div class="technical-grid-bg"></div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-inner">
+            <span class="mono-tag"><span class="pulse-dot"></span> BATCH 01 // 50 UNITS</span>
+            <span class="announcement-text">Hand-assembled batch currently in bench testing. Questions or reservation: <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a></span>
+            <a href="#reach-out" class="mono-link">Reserve Spot &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <div class="logo-group">
+                <a href="#home" class="logo">Xumi<span class="logo-dot">.</span></a>
+                <span class="badge-version mono-text">REV 2.4</span>
+            </div>
+
+            <nav class="nav-container">
+                <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Architecture</a></li>
+                    <li><a href="#simulator">Live Bench</a></li>
+                    <li><a href="#specs">Hardware</a></li>
+                    <li><a href="#maker-note">Workbench</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="mailto:yugthakar1111@gmail.com" class="nav-email-pill mono-text" title="Direct Email">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                    yugthakar1111@gmail.com
+                </a>
+                <a href="#reach-out" class="btn btn-primary btn-header">Pre-order / Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Inspired by Reference Technical Layout) -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            
+            <div class="hero-content">
+                <div class="hero-meta mono-text">
+                    <span class="corner-bracket">[</span> INDIE HARDWARE LABS &bull; PROTOTYPE NO. 01 <span class="corner-bracket">]</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Interactive Desktop Companion <span class="highlight">Robot</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Meet <strong>Xumi</strong> — a pocket-sized interactive desk companion designed to bring real personality, emotion, and life to your workspace. Reacts to your touch, remembers your habits, and expresses itself through adorable animated OLED faces.
+                </p>
+
+                <div class="hero-highlights-list mono-text">
+                    <div class="highlight-item"><span class="highlight-check">✓</span> 100% Offline & Private</div>
+                    <div class="highlight-item"><span class="highlight-check">✓</span> Zero Subscription Fees</div>
+                    <div class="highlight-item"><span class="highlight-check">✓</span> All-Day USB-C Battery</div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#reach-out" class="btn btn-primary btn-large">
+                        <span>Get In Touch with Yug</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#simulator" class="btn btn-secondary btn-large">
+                        <span class="status-indicator-green"></span>
+                        <span>Test Simulator</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual Area with Authentic Technical Accents -->
+            <div class="hero-visual">
+                <div class="visual-frame">
+                    <div class="frame-crosshair top-left">+</div>
+                    <div class="frame-crosshair top-right">+</div>
+                    <div class="frame-crosshair bottom-left">+</div>
+                    <div class="frame-crosshair bottom-right">+</div>
+                    
+                    <div class="hero-image-wrapper">
+                        <img src="assets/xumi.jpg" alt="Xumi Desktop Companion Robot on wooden desk" class="hero-img">
+                        
+                        <!-- Floating Technical Status Badge -->
+                        <div class="floating-telemetry-badge mono-text">
+                            <div class="badge-row">
+                                <span class="pulse-indicator"></span>
+                                <strong>STATUS: ACTIVE</strong>
+                            </div>
+                            <div class="badge-sub">OLED 128x64 &bull; CAP_TOUCH: ON</div>
+                        </div>
+
+                        <!-- Video Preview Card (Reflecting Reference Layout) -->
+                        <div class="quick-video-card" id="btn-watch-video">
+                            <div class="play-icon-circle">▶</div>
+                            <div class="video-card-text">
+                                <span class="video-card-title">Watch Demo Reel</span>
+                                <span class="video-card-sub mono-text">0:45 min clip</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Key Architecture & Features (Matching Reference's Clean Left Column Style) -->
+    <section id="features" class="section-features">
+        <div class="container">
+            
+            <div class="section-intro">
+                <div class="mono-label">[ 01 // CORE ARCHITECTURE ]</div>
+                <h2 class="section-heading">Designed to make your desk feel less lonely and a lot more fun.</h2>
+                <p class="section-subtext">
+                    Whether you're studying, working late, coding, or simply unwinding, Xumi stays by your side with playful micro-expressions, dynamic moods, and tactile touch interactions.
+                </p>
+            </div>
+
+            <div class="features-split-grid">
+                
+                <!-- Left: 4 Core Feature Columns with Clean Outlined Technical Cards -->
+                <div class="features-list">
+                    
+                    <div class="feature-item-card">
+                        <div class="feature-index mono-text">01.0</div>
+                        <div class="feature-body">
+                            <div class="feature-title-row">
+                                <h3>Expressive OLED Face</h3>
+                                <span class="feature-tag mono-text">HIGH-CONTRAST</span>
+                            </div>
+                            <p>Hand-crafted pixel animations featuring sleep, happy, curious, excited, hungry, and playful states that feel organically alive.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item-card">
+                        <div class="feature-index mono-text">02.0</div>
+                        <div class="feature-body">
+                            <div class="feature-title-row">
+                                <h3>Capacitive Multi-Zone Touch</h3>
+                                <span class="feature-tag mono-text">ZERO BUTTONS</span>
+                            </div>
+                            <p>Hidden sensors react instantly to your touch. Tap its head to greet, double-tap to feed, or stroke its crown to calm it into sleep.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item-card">
+                        <div class="feature-index mono-text">03.0</div>
+                        <div class="feature-body">
+                            <div class="feature-title-row">
+                                <h3>Dynamic Mood Engine</h3>
+                                <span class="feature-tag mono-text">STATE MACHINE</span>
+                            </div>
+                            <p>Xumi doesn't run on random scripts. Its mood state evolves based on how regularly you interact, room light, and daily idle habits.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item-card">
+                        <div class="feature-index mono-text">04.0</div>
+                        <div class="feature-body">
+                            <div class="feature-title-row">
+                                <h3>Persistent Local Memory</h3>
+                                <span class="feature-tag mono-text">EEPROM STORE</span>
+                            </div>
+                            <p>Remembers past interactions to build a unique bond over time. Zero cloud telemetry, no Wi-Fi required, completely private on your desk.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: High-Res Hardware Showcase with Exploded Specs Annotations -->
+                <div class="features-visual-showcase">
+                    <div class="showcase-card">
+                        <div class="showcase-img-container">
+                            <img src="assets/xumi_close_up.jpg" alt="Xumi Robot Close-up Detail">
+                            
+                            <div class="hardware-callout callout-screen mono-text">
+                                <span class="callout-point"></span>
+                                <span class="callout-text">1.12" Curved OLED Display</span>
+                            </div>
+
+                            <div class="hardware-callout callout-speaker mono-text">
+                                <span class="callout-point"></span>
+                                <span class="callout-text">Acoustic Audio Chamber</span>
+                            </div>
+
+                            <div class="hardware-callout callout-usb mono-text">
+                                <span class="callout-point"></span>
+                                <span class="callout-text">USB-C Power Port</span>
+                            </div>
+                        </div>
+
+                        <div class="showcase-caption mono-text">
+                            <span>FIG 1.2 — UNIBODY TEXTURED SHELL WITH SILICONE STABILITY BASE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Hardware Simulator & Test Bench -->
+    <section id="simulator" class="section-simulator">
+        <div class="container">
+            
+            <div class="simulator-header text-center">
+                <span class="mono-label">[ 02 // FIRMWARE TEST BENCH ]</span>
+                <h2 class="section-heading">Interactive Expression Engine</h2>
+                <p class="section-subtext">
+                    Xumi's emotions run on a custom state engine. Try the interactive test bench below — watch the eyes respond to touch, feeding, and even your mouse cursor!
+                </p>
+            </div>
+
+            <div class="testbench-console">
+                
+                <!-- Console Top Bar -->
+                <div class="console-topbar mono-text">
+                    <div class="console-title">
+                        <span class="terminal-circle red"></span>
+                        <span class="terminal-circle yellow"></span>
+                        <span class="terminal-circle green"></span>
+                        <span>XUMI_CORE_DEBUGGER // COM3 @ 115200 BAUD</span>
+                    </div>
+                    <div class="console-status" id="live-telemetry-status">
+                        STATUS: OK &bull; LATENCY: 12ms
+                    </div>
+                </div>
+
+                <!-- Test Bench Body -->
+                <div class="testbench-body">
+                    
+                    <!-- Left: Virtual Robot Device -->
+                    <div class="bench-device-zone">
+                        <div class="device-casing" id="device-casing" title="Click head to trigger capacitive touch!">
+                            
+                            <!-- Touch hint tag -->
+                            <div class="touch-hint-pill mono-text">👆 Tap robot to interact</div>
+
+                            <!-- Ears -->
+                            <div class="casing-ears">
+                                <div class="ear-left"></div>
+                                <div class="ear-right"></div>
+                            </div>
+
+                            <!-- Screen Bezel -->
+                            <div class="screen-bezel">
+                                <div class="screen-glass">
+                                    <div class="scanlines-overlay"></div>
+                                    
+                                    <!-- The OLED Pixel Face -->
+                                    <div class="pixel-face happy" id="xumi-face">
+                                        <div class="pixel-eye eye-left" id="eye-left">
+                                            <div class="pupil"></div>
+                                        </div>
+                                        <div class="pixel-eye eye-right" id="eye-right">
+                                            <div class="pupil"></div>
+                                        </div>
+                                        <div class="pixel-mouth" id="pixel-mouth"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Speaker Grille Accent -->
+                            <div class="speaker-grille-detail">
+                                <span></span><span></span><span></span>
+                            </div>
+
+                            <div class="casing-logo mono-text">XUMI</div>
+                        </div>
+
+                        <div class="device-state-readout mono-text">
+                            CURRENT_MOOD: <span class="readout-val" id="readout-mood">HAPPY</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Tactile Control Panel & Real-time Log -->
+                    <div class="bench-controls-zone">
+                        
+                        <div class="panel-section-title mono-text">// SIMULATE TOUCH & EVENTS</div>
+                        
+                        <div class="tactile-buttons-grid">
+                            <button class="tactile-btn active" id="btn-mood-happy" data-state="happy">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Happy / Idle</span>
+                            </button>
+                            <button class="tactile-btn" id="btn-mood-curious" data-state="curious">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Curious</span>
+                            </button>
+                            <button class="tactile-btn" id="btn-mood-pet" data-state="pet">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Pet Crown</span>
+                            </button>
+                            <button class="tactile-btn" id="btn-mood-feed" data-state="hungry">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Feed Snack</span>
+                            </button>
+                            <button class="tactile-btn" id="btn-mood-code" data-state="coding">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Focus Mode</span>
+                            </button>
+                            <button class="tactile-btn" id="btn-mood-sleep" data-state="sleeping">
+                                <span class="btn-indicator"></span>
+                                <span class="btn-text">Sleep State</span>
+                            </button>
+                        </div>
+
+                        <div class="panel-section-title mono-text" style="margin-top: 1.5rem;">// EVENT TELEMETRY LOG</div>
+                        <div class="telemetry-log-box mono-text" id="telemetry-log">
+                            <div class="log-row info">[00:00:01] System booted: Xumi firmware v2.4 initialized.</div>
+                            <div class="log-row success">[00:00:02] Capacitive sensors calibrated: OK.</div>
+                            <div class="log-row">[00:00:03] State entered: HAPPY_IDLE. Eye-tracking active.</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Creator Note / From the Workbench (Authentic Indie Maker Story) -->
+    <section id="maker-note" class="section-maker-note">
+        <div class="container">
+            
+            <div class="maker-note-card">
+                <div class="note-header mono-text">
+                    <span class="mono-label">[ 03 // FROM THE WORKBENCH ]</span>
+                    <span class="note-date">PERSONAL NOTE FROM THE CREATOR</span>
+                </div>
+
+                <div class="note-content-grid">
+                    <div class="note-text-col">
+                        <h2>Why I Built Xumi</h2>
+                        <p>
+                            Like a lot of developers, designers, and students, I spend 8 to 12 hours a day sitting behind monitors. Most desk accessories are either completely static plastic figurines, or they're aggressive smart screens that bomb you with phone notifications, calendar alerts, and digital noise.
+                        </p>
+                        <p>
+                            I built <strong>Xumi</strong> because I wanted something quiet, tactile, and genuinely charming. An object that feels like a pet on your desk—one that sleeps when your room is dark, perks up when you tap its head between deep coding sessions, and never asks you for a subscription or an app login.
+                        </p>
+                        <p>
+                            Every animation was hand-drawn frame-by-frame on OLED dot-matrix grids, and each prototype was tested right here on my workbench. If you're passionate about robotics, desktop aesthetics, or just want a loyal companion for late-night study sessions, I'd love to hear from you.
+                        </p>
+
+                        <div class="creator-signature-block">
+                            <div class="creator-details">
+                                <span class="creator-name">Yug Thakar</span>
+                                <span class="creator-role mono-text">Designer & Hardware Builder</span>
+                            </div>
+                            <a href="mailto:yugthakar1111@gmail.com" class="creator-email-link mono-text">
+                                yugthakar1111@gmail.com &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="note-manifesto-col">
+                        <div class="manifesto-card">
+                            <div class="manifesto-title mono-text">// THE XUMI MANIFESTO</div>
+                            <ul class="manifesto-list">
+                                <li>
+                                    <strong>No Cloud, No Spying</strong>
+                                    <span>Everything executes locally on-device. No microphones, no cameras, no analytics.</span>
+                                </li>
+                                <li>
+                                    <strong>Tactile First</strong>
+                                    <span>No fiddly companion app to open. Pure touch gestures and physical presence.</span>
+                                </li>
+                                <li>
+                                    <strong>Crafted to Last</strong>
+                                    <span>Standard USB-C, repairable battery connector, and modular shell design.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Technical Hardware Specifications -->
+    <section id="specs" class="section-specs">
+        <div class="container">
+            
+            <div class="section-intro">
+                <div class="mono-label">[ 04 // HARDWARE SPEC SHEET ]</div>
+                <h2 class="section-heading">Detailed Specifications</h2>
+                <p class="section-subtext">Precision engineering packed into an ultra-compact desktop footprint.</p>
+            </div>
+
+            <div class="specs-grid">
+                
+                <div class="spec-card">
+                    <div class="spec-label mono-text">DISPLAY & OPTICS</div>
+                    <div class="spec-value">1.12" Monochrome OLED</div>
+                    <div class="spec-desc">128 × 64 resolution, 60 FPS refresh, wide 170° viewing angle, deep contrast.</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label mono-text">INTERACTION SENSORS</div>
+                    <div class="spec-value">Capacitive Touch Array</div>
+                    <div class="spec-desc">Dual-zone crown and cheek sensing. Detects taps, long presses, and soothing strokes.</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label mono-text">CORE PROCESSOR</div>
+                    <div class="spec-value">32-bit Low-Power SoC</div>
+                    <div class="spec-desc">Dedicated finite state machine engine with non-volatile memory for personality persistence.</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label mono-text">BATTERY & POWER</div>
+                    <div class="spec-value">USB-C Fast Recharge</div>
+                    <div class="spec-desc">High-density Li-Po cell. Up to 14 hours active companion mode or 5+ days in deep sleep.</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label mono-text">AUDIO SYSTEM</div>
+                    <div class="spec-value">Resonant Acoustic Chamber</div>
+                    <div class="spec-desc">Soft emotive tones, playful chirps, and calming breathing hums. Easily muted via touch.</div>
+                </div>
+
+                <div class="spec-card">
+                    <div class="spec-label mono-text">CHASSIS & MATERIALS</div>
+                    <div class="spec-value">Matte ABS & Silicone Ring</div>
+                    <div class="spec-desc">Weight: 118 grams. Dimensions: 62mm × 58mm × 55mm. Weighted anti-slip desk footing.</div>
+                </div>
+
+            </div>
+
+            <!-- What's in the Box (Clean Industrial Unboxing Strip) -->
+            <div class="box-contents-strip">
+                <div class="box-header mono-text">// WHAT'S IN THE BOX</div>
+                <div class="box-items-row">
+                    <div class="box-item">
+                        <span class="box-qty mono-text">01</span>
+                        <span class="box-name">Xumi Desktop Companion Robot</span>
+                    </div>
+                    <div class="box-item">
+                        <span class="box-qty mono-text">01</span>
+                        <span class="box-name">Braided USB-A to USB-C Cable (1.2m)</span>
+                    </div>
+                    <div class="box-item">
+                        <span class="box-qty mono-text">01</span>
+                        <span class="box-name">Quick Start Guide & Touch Gesture Card</span>
+                    </div>
+                    <div class="box-item">
+                        <span class="box-qty mono-text">01</span>
+                        <span class="box-name">Numbered Batch 01 Authenticity Seal</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Ideal Setups -->
+    <section class="section-setups">
+        <div class="container">
+            <div class="section-intro text-center">
+                <div class="mono-label">[ 05 // ENVIRONMENTS ]</div>
+                <h2 class="section-heading">Fits Right In Anywhere</h2>
+            </div>
+
+            <div class="setup-tags-grid">
+                <div class="setup-pill">
+                    <span class="setup-icon">⌨️</span>
+                    <span class="setup-name">Developer Desks</span>
+                    <span class="setup-desc">Quiet coding companion that celebrates git pushes</span>
+                </div>
+                <div class="setup-pill">
+                    <span class="setup-icon">📚</span>
+                    <span class="setup-name">Study & Library Tables</span>
+                    <span class="setup-desc">Non-distracting study buddy for Pomodoro sessions</span>
+                </div>
+                <div class="setup-pill">
+                    <span class="setup-icon">🎮</span>
+                    <span class="setup-name">Battlestations</span>
+                    <span class="setup-desc">Matches clean RGB or minimalist matte black setups</span>
+                </div>
+                <div class="setup-pill">
+                    <span class="setup-icon">🏠</span>
+                    <span class="setup-name">Home Offices</span>
+                    <span class="setup-desc">Brings warmth and playful energy to remote work</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & "Reach Out Today" Section (Modeled Exactly After Reference Image Bottom) -->
+    <section id="faq" class="section-faq-contact">
+        <div class="container">
+            
+            <div class="faq-contact-layout">
+                
+                <!-- Left Column: FAQ Accordion -->
+                <div class="faq-column">
+                    <div class="mono-label">[ 06 // QUESTIONS & ANSWERS ]</div>
+                    <h2 class="section-heading">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-accordion">
+                        
+                        <div class="faq-item active">
+                            <button class="faq-question">
+                                <span>Does Xumi need an internet connection or smartphone app?</span>
+                                <span class="faq-toggle mono-text">-</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>No. Xumi is 100% self-contained and operates completely offline. There are no apps to install, no cloud servers, and no tracking. You just plug it in, tap it, and enjoy.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do the emotions and personality work?</span>
+                                <span class="faq-toggle mono-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Xumi runs an embedded emotion state machine. Over time, it learns when you sit at your desk, reacts happily to regular pets, and goes into a quiet resting state when you step away.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How long does the battery last on a charge?</span>
+                                <span class="faq-toggle mono-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>On a single USB-C charge, Xumi lasts up to 14 hours of continuous interactive desk use. In sleep/rest mode, the battery lasts over 5 days. You can also leave it plugged in permanently via USB-C without battery degradation.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I turn off the sound when I need silence?</span>
+                                <span class="faq-toggle mono-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes! Triple-tapping the crown immediately toggles Silent Mode. Xumi will still display all facial expressions and animations, but without any sound effects.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How does pre-ordering and shipping work?</span>
+                                <span class="faq-toggle mono-text">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We are currently assembling Batch 01 (50 units). To reserve a spot without paying upfront or to inquire about early pricing, simply reach out to Yug via email below.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Column: Dedicated "Reach Out Today" Dark Card (Directly from Reference) -->
+                <div class="contact-card-column" id="reach-out">
+                    <div class="reach-out-card">
+                        
+                        <div class="reach-card-header">
+                            <div class="card-status-dot"></div>
+                            <span class="mono-text card-category">DIRECT LINE // CREATOR</span>
+                        </div>
+
+                        <h2 class="reach-card-title">Reach Out <span class="highlight">Today</span></h2>
+                        
+                        <p class="reach-card-sub">
+                            Have questions about hardware specs, want to reserve a unit from Batch 01, or discuss a custom run? Feel free to reach out directly. I answer every email personally.
+                        </p>
+
+                        <!-- Highlighted Email Box with Copy & Send Action -->
+                        <div class="email-direct-box">
+                            <div class="email-display-row">
+                                <span class="email-label mono-text">PRIMARY CONTACT</span>
+                                <span class="email-value mono-text" id="target-email">yugthakar1111@gmail.com</span>
+                            </div>
+                            <div class="email-actions-row">
+                                <button class="btn-copy-email mono-text" id="btn-copy-email" title="Copy email address">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                    <span id="copy-btn-label">Copy Email</span>
+                                </button>
+                                <a href="mailto:yugthakar1111@gmail.com?subject=Inquiry%20regarding%20Xumi%20Robot" class="btn-send-mail mono-text">
+                                    <span>Send Email</span> &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Direct Inquiry Form -->
+                        <form class="quick-inquiry-form" id="quick-inquiry-form">
+                            <div class="form-row">
+                                <input type="text" id="inq-name" class="inquiry-input" placeholder="Your Name" required>
+                                <input type="email" id="inq-email" class="inquiry-input" placeholder="Your Email" required>
+                            </div>
+                            <textarea id="inq-msg" class="inquiry-input inquiry-textarea" placeholder="Tell me what you're interested in (Batch 01 pre-order, hardware question, etc.)..." rows="3" required></textarea>
+                            
+                            <button type="submit" class="btn btn-primary btn-inquiry-submit">
+                                <span>Send Note to Yug</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            </button>
+                        </form>
+
+                        <div class="inquiry-success-notice mono-text" id="inquiry-success-notice" style="display: none;">
+                            ✓ Note formatted! Opening your email client to dispatch to <strong>yugthakar1111@gmail.com</strong>.
+                        </div>
+
+                        <div class="reach-card-footer mono-text">
+                            <span>AVG RESPONSE TIME: &lt; 12 HOURS</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">Xumi<span class="logo-dot">.</span></div>
+                <p class="footer-tagline">Crafted by Yug Thakar. Designed to make your workspace feel alive.</p>
+                <div class="footer-email-tag mono-text">
+                    Direct Contact: <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-nav-col">
+                    <span class="footer-col-title mono-text">NAVIGATION</span>
+                    <a href="#home">Home</a>
+                    <a href="#features">Architecture</a>
+                    <a href="#simulator">Live Simulator</a>
+                    <a href="#specs">Specifications</a>
+                </div>
+                <div class="footer-nav-col">
+                    <span class="footer-col-title mono-text">CONNECT</span>
+                    <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a>
+                    <a href="#reach-out">Pre-order Inquiries</a>
+                    <a href="#maker-note">About Yug</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom-bar mono-text">
+            <span>&copy; 2026 Xumi Robotics &bull; Handcrafted by Yug Thakar</span>
+            <span>ALL RIGHTS RESERVED &bull; INDIE HARDWARE PROJECT</span>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-overlay" id="video-modal-overlay"></div>
+        <div class="modal-content video-modal-content">
+            <button class="modal-close" id="btn-close-video" aria-label="Close Video">&times;</button>
+            <div class="video-container-wrapper">
+                <div class="mock-player">
+                    <div class="player-overlay" id="player-overlay">
+                        <div class="play-btn-large">▶</div>
+                        <h3>Xumi: Meet Your Tiny Desk Companion</h3>
+                        <p class="mono-text">Click anywhere to watch hardware reel</p>
+                    </div>
+                    <div class="mock-video-playing" id="mock-video-playing" style="display: none;">
+                        <img src="assets/xumi.jpg" alt="Video demo poster" class="video-demo-still">
+                        <div class="video-glow-effect"></div>
+                        <div class="play-status mono-text">● PLAYING: Xumi Hardware & Interaction Demonstration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-notification mono-text" id="toast-notification"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
