@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xumi – Pocket-sized Interactive Desk Companion Robot</title>
-    <meta name="description" content="Meet Xumi, an expressive, touch-responsive desktop companion robot crafted by Yug Thakar. Zero subscriptions, pure personality.">
+    <title>Xumi by Velqora – Pocket-sized Interactive Desk Companion Robot</title>
+    <meta name="description" content="Meet Xumi, an expressive, touch-responsive desktop companion robot crafted by Velqora. Zero subscriptions, pure personality.">
+    <link rel="icon" type="image/jpeg" href="assets/velqora-logo.jpg">
     
     <!-- Design Fonts: Plus Jakarta Sans for clean geometric layout & JetBrains Mono for hardware telemetry -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2.5">
 </head>
 <body>
 
@@ -22,44 +23,113 @@
     <div class="announcement-bar">
         <div class="container announcement-inner">
             <span class="mono-tag"><span class="pulse-dot"></span> BATCH 01 // 50 UNITS</span>
-            <span class="announcement-text">Hand-assembled batch currently in bench testing. Questions or reservation: <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a></span>
+            <span class="announcement-text">Hand-assembled batch in bench testing. Inquiries & Reservations: <a href="tel:+918238337734" class="phone-link">+91 8238337734</a> &bull; <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a></span>
             <a href="#reach-out" class="mono-link">Reserve Spot &rarr;</a>
         </div>
     </div>
 
     <!-- Header / Navbar -->
-    <header class="navbar">
+    <header class="navbar" id="main-navbar">
         <div class="container navbar-container">
             <div class="logo-group">
-                <a href="#home" class="logo">Xumi<span class="logo-dot">.</span></a>
-                <span class="badge-version mono-text">REV 2.4</span>
+                <a href="#home" class="brand-link" aria-label="Velqora Home">
+                    <img src="assets/velqora-logo.jpg" alt="Velqora Logo" class="nav-brand-logo">
+                    <span class="logo">Velqora<span class="logo-dot">.</span></span>
+                </a>
+                <span class="badge-version mono-text">XUMI // REV 2.4</span>
             </div>
 
-            <nav class="nav-container">
-                <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle Menu">
+            <!-- Desktop Navigation Links -->
+            <nav class="nav-desktop" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-item">Home</a></li>
+                    <li><a href="#features" class="nav-item">Architecture</a></li>
+                    <li><a href="#simulator" class="nav-item">Live Bench</a></li>
+                    <li><a href="#specs" class="nav-item">Hardware</a></li>
+                    <li><a href="#maker-note" class="nav-item">Workbench</a></li>
+                    <li><a href="#faq" class="nav-item">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions & Controls -->
+            <div class="nav-actions">
+                <a href="tel:+918238337734" class="nav-phone-pill mono-text" title="Call or WhatsApp: +91 8238337734">
+                    <span class="phone-live-dot"></span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+91 8238337734</span>
+                </a>
+
+                <a href="#reach-out" class="btn btn-primary btn-header">
+                    <span>Pre-order</span>
+                </a>
+
+                <!-- Mobile Quick Call Icon Button (mobile only) -->
+                <a href="tel:+918238337734" class="mobile-call-btn" aria-label="Call +91 8238337734" title="Call +91 8238337734">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </a>
+
+                <!-- Hamburger Trigger Button -->
+                <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Architecture</a></li>
-                    <li><a href="#simulator">Live Bench</a></li>
-                    <li><a href="#specs">Hardware</a></li>
-                    <li><a href="#maker-note">Workbench</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="mailto:yugthakar1111@gmail.com" class="nav-email-pill mono-text" title="Direct Email">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
-                    yugthakar1111@gmail.com
-                </a>
-                <a href="#reach-out" class="btn btn-primary btn-header">Pre-order / Contact</a>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Drawer Overlay & Slide-in Menu -->
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="assets/velqora-logo.jpg" alt="Velqora Logo" class="drawer-logo">
+                <span class="drawer-title">Velqora<span class="logo-dot">.</span></span>
+            </div>
+            <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Navigation">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <nav class="drawer-nav">
+            <ul class="drawer-links">
+                <li><a href="#home" class="drawer-item"><span class="drawer-num">01</span><span>Home</span></a></li>
+                <li><a href="#features" class="drawer-item"><span class="drawer-num">02</span><span>Architecture</span></a></li>
+                <li><a href="#simulator" class="drawer-item"><span class="drawer-num">03</span><span>Live Bench Simulator</span></a></li>
+                <li><a href="#specs" class="drawer-item"><span class="drawer-num">04</span><span>Hardware &amp; Specs</span></a></li>
+                <li><a href="#maker-note" class="drawer-item"><span class="drawer-num">05</span><span>Workbench Note</span></a></li>
+                <li><a href="#faq" class="drawer-item"><span class="drawer-num">06</span><span>FAQ</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="drawer-footer">
+            <div class="drawer-contact-card">
+                <div class="drawer-card-label mono-text">DIRECT INQUIRIES &amp; RESERVATIONS</div>
+                <a href="tel:+918238337734" class="drawer-contact-row">
+                    <div class="drawer-contact-icon phone-icon">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="drawer-contact-info">
+                        <span class="drawer-contact-title">+91 8238337734</span>
+                        <span class="drawer-contact-subtitle">Call / WhatsApp (Direct)</span>
+                    </div>
+                </a>
+                <a href="mailto:yugthakar1111@gmail.com" class="drawer-contact-row">
+                    <div class="drawer-contact-icon email-icon">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                    </div>
+                    <div class="drawer-contact-info">
+                        <span class="drawer-contact-title">yugthakar1111@gmail.com</span>
+                        <span class="drawer-contact-subtitle">Engineering Desk</span>
+                    </div>
+                </a>
+            </div>
+            <a href="#reach-out" class="btn btn-primary drawer-cta-btn">
+                <span>Reserve Batch 01 Spot</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </aside>
 
     <!-- Hero Section (Inspired by Reference Technical Layout) -->
     <section id="home" class="hero">
@@ -67,7 +137,7 @@
             
             <div class="hero-content">
                 <div class="hero-meta mono-text">
-                    <span class="corner-bracket">[</span> INDIE HARDWARE LABS &bull; PROTOTYPE NO. 01 <span class="corner-bracket">]</span>
+                    <span class="corner-bracket">[</span> VELQORA ROBOTICS LABS &bull; PROTOTYPE NO. 01 <span class="corner-bracket">]</span>
                 </div>
                 
                 <h1 class="hero-title">
@@ -86,7 +156,7 @@
 
                 <div class="hero-actions">
                     <a href="#reach-out" class="btn btn-primary btn-large">
-                        <span>Get In Touch with Yug</span>
+                        <span>Get In Touch with Velqora</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <a href="#simulator" class="btn btn-secondary btn-large">
@@ -357,30 +427,39 @@
             <div class="maker-note-card">
                 <div class="note-header mono-text">
                     <span class="mono-label">[ 03 // FROM THE WORKBENCH ]</span>
-                    <span class="note-date">PERSONAL NOTE FROM THE CREATOR</span>
+                    <span class="note-date">NOTE FROM VELQORA LABS</span>
                 </div>
 
                 <div class="note-content-grid">
                     <div class="note-text-col">
-                        <h2>Why I Built Xumi</h2>
+                        <h2>Why We Built Xumi</h2>
                         <p>
-                            Like a lot of developers, designers, and students, I spend 8 to 12 hours a day sitting behind monitors. Most desk accessories are either completely static plastic figurines, or they're aggressive smart screens that bomb you with phone notifications, calendar alerts, and digital noise.
+                            Like a lot of developers, designers, and creators, we spend 8 to 12 hours a day sitting behind monitors. Most desk accessories are either completely static figurines, or they're aggressive smart screens that bomb you with phone notifications, calendar alerts, and digital noise.
                         </p>
                         <p>
-                            I built <strong>Xumi</strong> because I wanted something quiet, tactile, and genuinely charming. An object that feels like a pet on your desk—one that sleeps when your room is dark, perks up when you tap its head between deep coding sessions, and never asks you for a subscription or an app login.
+                            We built <strong>Xumi</strong> because we wanted something quiet, tactile, and genuinely charming. An object that feels like a pet on your desk—one that sleeps when your room is dark, perks up when you tap its head between deep work sessions, and never asks you for a subscription or an app login.
                         </p>
                         <p>
-                            Every animation was hand-drawn frame-by-frame on OLED dot-matrix grids, and each prototype was tested right here on my workbench. If you're passionate about robotics, desktop aesthetics, or just want a loyal companion for late-night study sessions, I'd love to hear from you.
+                            Every animation was hand-drawn frame-by-frame on OLED dot-matrix grids, and each prototype was tested right here on our workbench. If you're passionate about robotics, desktop aesthetics, or want to reserve a unit from Batch 01, we'd love to hear from you.
                         </p>
 
                         <div class="creator-signature-block">
-                            <div class="creator-details">
-                                <span class="creator-name">Yug Thakar</span>
-                                <span class="creator-role mono-text">Designer & Hardware Builder</span>
+                            <div class="creator-profile-wrap">
+                                <img src="assets/velqora-logo.jpg" alt="Velqora Labs" class="creator-avatar-img">
+                                <div class="creator-details">
+                                    <span class="creator-name">Velqora</span>
+                                    <span class="creator-role mono-text">Indie Robotics & Hardware Labs</span>
+                                </div>
                             </div>
-                            <a href="mailto:yugthakar1111@gmail.com" class="creator-email-link mono-text">
-                                yugthakar1111@gmail.com &rarr;
-                            </a>
+                            <div class="creator-contact-chips">
+                                <a href="tel:+918238337734" class="creator-phone-chip mono-text" title="Call or WhatsApp">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    +91 8238337734
+                                </a>
+                                <a href="mailto:yugthakar1111@gmail.com" class="creator-email-link mono-text">
+                                    yugthakar1111@gmail.com &rarr;
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -578,65 +657,158 @@
                                 <span class="faq-toggle mono-text">+</span>
                             </button>
                             <div class="faq-answer">
-                                <p>We are currently assembling Batch 01 (50 units). To reserve a spot without paying upfront or to inquire about early pricing, simply reach out to Yug via email below.</p>
+                                <p>We are currently assembling Batch 01 (50 units). To reserve a spot without paying upfront or to inquire about early pricing, simply reach out to Velqora via WhatsApp/Call (+91 8238337734) or email below.</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- Right Column: Dedicated "Reach Out Today" Dark Card (Directly from Reference) -->
+                <!-- Right Column: Dedicated "Reach Out Today" Dark Card -->
                 <div class="contact-card-column" id="reach-out">
                     <div class="reach-out-card">
                         
                         <div class="reach-card-header">
+                            <div class="reach-brand-badge">
+                                <img src="assets/velqora-logo.jpg" alt="Velqora Logo" class="reach-logo-img">
+                                <span class="mono-text card-category">DIRECT LINE // VELQORA LABS</span>
+                            </div>
                             <div class="card-status-dot"></div>
-                            <span class="mono-text card-category">DIRECT LINE // CREATOR</span>
                         </div>
 
                         <h2 class="reach-card-title">Reach Out <span class="highlight">Today</span></h2>
                         
                         <p class="reach-card-sub">
-                            Have questions about hardware specs, want to reserve a unit from Batch 01, or discuss a custom run? Feel free to reach out directly. I answer every email personally.
+                            Have questions about hardware specs, want to reserve a unit from Batch 01, or discuss custom builds? Feel free to call, WhatsApp, or message us directly.
                         </p>
 
-                        <!-- Highlighted Email Box with Copy & Send Action -->
-                        <div class="email-direct-box">
-                            <div class="email-display-row">
-                                <span class="email-label mono-text">PRIMARY CONTACT</span>
-                                <span class="email-value mono-text" id="target-email">yugthakar1111@gmail.com</span>
+                        <!-- Highlighted Direct Contact Boxes (Phone & Email) -->
+                        <div class="contact-boxes-grid">
+                            <!-- Mobile / WhatsApp Box -->
+                            <div class="direct-contact-box phone-contact-box">
+                                <div class="box-top-row">
+                                    <span class="box-label mono-text">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        DIRECT PHONE / WHATSAPP
+                                    </span>
+                                    <span class="box-value mono-text" id="target-phone">+91 8238337734</span>
+                                </div>
+                                <div class="box-actions-row">
+                                    <a href="tel:+918238337734" class="btn-contact-action btn-phone-call mono-text">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                        <span>Call</span>
+                                    </a>
+                                    <a href="https://wa.me/918238337734?text=Hi%20Velqora%20Team%2C%20I'm%20interested%20in%20reserving%20the%20Xumi%20Companion%20Robot%20from%20Batch%2001." target="_blank" rel="noopener" class="btn-contact-action btn-whatsapp-chat mono-text">
+                                        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                        <span>WhatsApp</span>
+                                    </a>
+                                    <button type="button" class="btn-contact-action btn-copy-contact mono-text" id="btn-copy-phone" title="Copy phone number">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                        <span id="copy-phone-label">Copy</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="email-actions-row">
-                                <button class="btn-copy-email mono-text" id="btn-copy-email" title="Copy email address">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                                    <span id="copy-btn-label">Copy Email</span>
-                                </button>
-                                <a href="mailto:yugthakar1111@gmail.com?subject=Inquiry%20regarding%20Xumi%20Robot" class="btn-send-mail mono-text">
-                                    <span>Send Email</span> &rarr;
-                                </a>
+
+                            <!-- Email Box -->
+                            <div class="direct-contact-box email-contact-box">
+                                <div class="box-top-row">
+                                    <span class="box-label mono-text">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                                        PRIMARY EMAIL
+                                    </span>
+                                    <span class="box-value mono-text" id="target-email">yugthakar1111@gmail.com</span>
+                                </div>
+                                <div class="box-actions-row">
+                                    <button type="button" class="btn-contact-action btn-copy-contact mono-text" id="btn-copy-email" title="Copy email address">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                        <span id="copy-btn-label">Copy Email</span>
+                                    </button>
+                                    <a href="mailto:yugthakar1111@gmail.com?subject=Inquiry%20regarding%20Xumi%20Robot" class="btn-contact-action btn-send-mail mono-text">
+                                        <span>Send Mail</span> &rarr;
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Direct Inquiry Form -->
                         <form class="quick-inquiry-form" id="quick-inquiry-form">
                             <div class="form-row">
-                                <input type="text" id="inq-name" class="inquiry-input" placeholder="Your Name" required>
-                                <input type="email" id="inq-email" class="inquiry-input" placeholder="Your Email" required>
+                                <input type="text" id="inq-name" class="inquiry-input" placeholder="Your Name *" required>
+                                <input type="email" id="inq-email" class="inquiry-input" placeholder="Your Email Address *" required>
                             </div>
-                            <textarea id="inq-msg" class="inquiry-input inquiry-textarea" placeholder="Tell me what you're interested in (Batch 01 pre-order, hardware question, etc.)..." rows="3" required></textarea>
+                            <div class="form-row">
+                                <input type="tel" id="inq-phone" class="inquiry-input" placeholder="Phone / WhatsApp Number (Optional)">
+                                <select id="inq-interest" class="inquiry-input inquiry-select">
+                                    <option value="Batch 01 Pre-order Reservation">Batch 01 Pre-order Reservation</option>
+                                    <option value="Hardware Architecture Inquiry">Hardware Architecture Inquiry</option>
+                                    <option value="Custom Shell / Firmware">Custom Shell / Firmware</option>
+                                    <option value="General Question">General Question</option>
+                                </select>
+                            </div>
+                            <textarea id="inq-msg" class="inquiry-input inquiry-textarea" placeholder="Tell us what you're interested in or ask any question..." rows="3" required></textarea>
                             
-                            <button type="submit" class="btn btn-primary btn-inquiry-submit">
-                                <span>Send Note to Yug</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            <button type="submit" class="btn btn-primary btn-inquiry-submit" id="btn-submit-inquiry">
+                                <span class="submit-text">Submit Inquiry & Reserve Spot</span>
+                                <svg class="submit-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                             </button>
                         </form>
 
-                        <div class="inquiry-success-notice mono-text" id="inquiry-success-notice" style="display: none;">
-                            ✓ Note formatted! Opening your email client to dispatch to <strong>yugthakar1111@gmail.com</strong>.
+                        <!-- Verified Email Confirmation Card (Replaces the broken mailto redirect) -->
+                        <div class="inquiry-confirmation-card" id="inquiry-confirmation-card" style="display: none;">
+                            <div class="confirmation-header">
+                                <div class="confirmation-pill mono-text">
+                                    <span class="confirmation-icon">✓</span>
+                                    <span>INQUIRY CONFIRMED</span>
+                                </div>
+                                <span class="confirmation-code mono-text" id="conf-ref-id">#VELQ-8238-XXXX</span>
+                            </div>
+
+                            <h3 class="confirmation-heading">Thank You! Your Note Has Been Logged.</h3>
+                            
+                            <p class="confirmation-message" id="conf-summary-text">
+                                We have received your inquiry. A confirmation ticket has been generated for your reservation. Our team will get back to you within 12 hours.
+                            </p>
+
+                            <div class="confirmation-details-box mono-text">
+                                <div class="conf-row">
+                                    <span class="conf-label">NAME:</span>
+                                    <span class="conf-val" id="conf-val-name">—</span>
+                                </div>
+                                <div class="conf-row">
+                                    <span class="conf-label">EMAIL:</span>
+                                    <span class="conf-val" id="conf-val-email">—</span>
+                                </div>
+                                <div class="conf-row">
+                                    <span class="conf-label">DESTINATION:</span>
+                                    <span class="conf-val">Velqora Labs (+91 8238337734)</span>
+                                </div>
+                            </div>
+
+                            <div class="confirmation-direct-actions">
+                                <span class="conf-actions-title mono-text">// INSTANT 1-CLICK DISPATCH OPTIONS</span>
+                                <div class="conf-actions-grid">
+                                    <a id="btn-conf-whatsapp" href="#" target="_blank" rel="noopener" class="conf-btn conf-btn-whatsapp mono-text">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                        <span>Send to WhatsApp (+91 8238337734)</span>
+                                    </a>
+                                    <a id="btn-conf-gmail" href="#" target="_blank" rel="noopener" class="conf-btn conf-btn-gmail mono-text">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                        <span>Open in Gmail (Web)</span>
+                                    </a>
+                                    <a id="btn-conf-mailto" href="#" class="conf-btn conf-btn-mailclient mono-text">
+                                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                                        <span>Desktop Mail App</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn-reset-inquiry mono-text" id="btn-reset-inquiry">
+                                ↺ Submit Another Inquiry / Note
+                            </button>
                         </div>
 
                         <div class="reach-card-footer mono-text">
-                            <span>AVG RESPONSE TIME: &lt; 12 HOURS</span>
+                            <span>AVG RESPONSE TIME: &lt; 12 HOURS &bull; VELQORA HARDWARE LABS</span>
                         </div>
 
                     </div>
@@ -651,10 +823,20 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-left">
-                <div class="footer-logo">Xumi<span class="logo-dot">.</span></div>
-                <p class="footer-tagline">Crafted by Yug Thakar. Designed to make your workspace feel alive.</p>
-                <div class="footer-email-tag mono-text">
-                    Direct Contact: <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a>
+                <div class="footer-brand">
+                    <img src="assets/velqora-logo.jpg" alt="Velqora Logo" class="footer-brand-logo">
+                    <div class="footer-logo">Velqora<span class="logo-dot">.</span></div>
+                </div>
+                <p class="footer-tagline">Crafted by Velqora. Designed to make your workspace feel alive.</p>
+                <div class="footer-contact-tag mono-text">
+                    <div class="footer-contact-row">
+                        <span>Direct Line:</span>
+                        <a href="tel:+918238337734" class="footer-highlight-link">+91 8238337734</a>
+                    </div>
+                    <div class="footer-contact-row">
+                        <span>Email:</span>
+                        <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a>
+                    </div>
                 </div>
             </div>
 
@@ -668,16 +850,17 @@
                 </div>
                 <div class="footer-nav-col">
                     <span class="footer-col-title mono-text">CONNECT</span>
+                    <a href="tel:+918238337734">+91 8238337734</a>
+                    <a href="https://wa.me/918238337734" target="_blank" rel="noopener">WhatsApp Chat</a>
                     <a href="mailto:yugthakar1111@gmail.com">yugthakar1111@gmail.com</a>
-                    <a href="#reach-out">Pre-order Inquiries</a>
-                    <a href="#maker-note">About Yug</a>
+                    <a href="#maker-note">About Velqora</a>
                 </div>
             </div>
         </div>
 
         <div class="container footer-bottom-bar mono-text">
-            <span>&copy; 2026 Xumi Robotics &bull; Handcrafted by Yug Thakar</span>
-            <span>ALL RIGHTS RESERVED &bull; INDIE HARDWARE PROJECT</span>
+            <span>&copy; 2026 Velqora Robotics &bull; All Rights Reserved</span>
+            <span>INDIE HARDWARE LABS // XUMI DESK COMPANION</span>
         </div>
     </footer>
 
@@ -706,6 +889,6 @@
     <!-- Notification Toast -->
     <div class="toast-notification mono-text" id="toast-notification"></div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2.5"></script>
 </body>
 </html>

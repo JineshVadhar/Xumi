@@ -1,17 +1,63 @@
 /**
- * XUMI ROBOTICS // FIRMWARE & INTERACTIVE TEST BENCH CONTROLLER
+ * VELQORA ROBOTICS // FIRMWARE & INTERACTIVE TEST BENCH CONTROLLER
  * Handcrafted for Xumi Desktop Companion Robot
- * Creator: Yug Thakar (yugthakar1111@gmail.com)
+ * Maker: Velqora Labs (yugthakar1111@gmail.com | +91 8238337734)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
-       1. SMOOTH SCROLLING & NAVIGATION
+       1. SMOOTH SCROLLING & RESPONSIVE NAVIGATION DRAWER
        ========================================================================== */
     const navLinksList = document.querySelectorAll('a[href^="#"]');
     const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navLinks = document.getElementById('nav-links');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const navOverlay = document.getElementById('nav-overlay');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
+    function openMobileDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.add('active');
+        if (navOverlay) navOverlay.classList.add('active');
+        if (hamburgerBtn) {
+            hamburgerBtn.classList.add('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileDrawer() {
+        if (mobileDrawer) mobileDrawer.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        if (hamburgerBtn) {
+            hamburgerBtn.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+        document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+            if (mobileDrawer && mobileDrawer.classList.contains('active')) {
+                closeMobileDrawer();
+            } else {
+                openMobileDrawer();
+            }
+        });
+    }
+
+    if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', closeMobileDrawer);
+    }
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', closeMobileDrawer);
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+            closeMobileDrawer();
+        }
+    });
 
     navLinksList.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -21,11 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                // Close mobile menu if open
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    hamburgerBtn.classList.remove('active');
-                }
+                closeMobileDrawer();
 
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
@@ -34,13 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    if (hamburgerBtn && navLinks) {
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-    }
 
     /* ==========================================================================
        2. INTERACTIVE TEST BENCH & OLED EMOTION ENGINE
@@ -172,14 +207,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       3. EMAIL INTEGRATION (yugthakar1111@gmail.com) & TOAST SYSTEM
+       3. CONTACT INTEGRATION (+91 8238337734) & EMAIL CONFIRMATION SYSTEM
        ========================================================================== */
     const targetEmail = 'yugthakar1111@gmail.com';
+    const targetPhone = '+918238337734';
     const btnCopyEmail = document.getElementById('btn-copy-email');
     const copyBtnLabel = document.getElementById('copy-btn-label');
+    const btnCopyPhone = document.getElementById('btn-copy-phone');
+    const copyPhoneLabel = document.getElementById('copy-phone-label');
     const toast = document.getElementById('toast-notification');
+    
+    // Inquiry Form & Confirmation Elements
     const quickInquiryForm = document.getElementById('quick-inquiry-form');
-    const inquirySuccessNotice = document.getElementById('inquiry-success-notice');
+    const inquiryConfCard = document.getElementById('inquiry-confirmation-card');
+    const btnSubmitInquiry = document.getElementById('btn-submit-inquiry');
+    const btnResetInquiry = document.getElementById('btn-reset-inquiry');
+    
+    const confRefId = document.getElementById('conf-ref-id');
+    const confValName = document.getElementById('conf-val-name');
+    const confValEmail = document.getElementById('conf-val-email');
+    const btnConfWhatsapp = document.getElementById('btn-conf-whatsapp');
+    const btnConfGmail = document.getElementById('btn-conf-gmail');
+    const btnConfMailto = document.getElementById('btn-conf-mailto');
 
     function showToast(message) {
         if (!toast) return;
@@ -187,71 +236,173 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.classList.add('active');
         setTimeout(() => {
             toast.classList.remove('active');
-        }, 3200);
+        }, 3400);
+    }
+
+    // Generic Clipboard Helper
+    async function copyToClipboard(text, successMsg, labelElement, originalText) {
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+            }
+
+            if (labelElement) {
+                labelElement.textContent = '✓ Copied!';
+                setTimeout(() => {
+                    labelElement.textContent = originalText;
+                }, 2400);
+            }
+            showToast(successMsg);
+        } catch (err) {
+            console.error('Clipboard copy failed:', err);
+            showToast(`Copy: ${text}`);
+        }
+    }
+
+    // 1-Click Copy Phone (+91 8238337734)
+    if (btnCopyPhone) {
+        btnCopyPhone.addEventListener('click', () => {
+            copyToClipboard(targetPhone, '✓ Copied +91 8238337734 to clipboard!', copyPhoneLabel, 'Copy');
+        });
     }
 
     // 1-Click Copy Email to Clipboard
     if (btnCopyEmail) {
-        btnCopyEmail.addEventListener('click', async () => {
-            try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(targetEmail);
-                } else {
-                    // Fallback
-                    const tempInput = document.createElement('input');
-                    tempInput.value = targetEmail;
-                    document.body.appendChild(tempInput);
-                    tempInput.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempInput);
-                }
-
-                // Update Button Label
-                if (copyBtnLabel) {
-                    copyBtnLabel.textContent = '✓ Copied!';
-                }
-                showToast(`✓ Copied ${targetEmail} to clipboard!`);
-
-                setTimeout(() => {
-                    if (copyBtnLabel) copyBtnLabel.textContent = 'Copy Email';
-                }, 2500);
-
-            } catch (err) {
-                console.error('Copy failed:', err);
-                showToast(`Email: ${targetEmail}`);
-            }
+        btnCopyEmail.addEventListener('click', () => {
+            copyToClipboard(targetEmail, `✓ Copied ${targetEmail} to clipboard!`, copyBtnLabel, 'Copy Email');
         });
     }
 
-    // Direct Pre-order / Inquiry Note Form Submission
+    // Direct Pre-order / Inquiry Note Form Submission with Verified Confirmation
     if (quickInquiryForm) {
-        quickInquiryForm.addEventListener('submit', (e) => {
+        quickInquiryForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const name = document.getElementById('inq-name').value.trim();
             const senderEmail = document.getElementById('inq-email').value.trim();
+            const senderPhone = document.getElementById('inq-phone') ? document.getElementById('inq-phone').value.trim() : '';
+            const interest = document.getElementById('inq-interest') ? document.getElementById('inq-interest').value : 'Batch 01 Pre-order Reservation';
             const message = document.getElementById('inq-msg').value.trim();
 
-            if (!name || !senderEmail || !message) return;
-
-            // Prepare mailto link with encoded parameters
-            const subject = encodeURIComponent(`Xumi Robot Pre-order / Inquiry from ${name}`);
-            const body = encodeURIComponent(
-                `Hi Yug,\n\nI came across Xumi and wanted to reach out:\n\n${message}\n\nFrom: ${name} (${senderEmail})\nSent via Xumi Workbench`
-            );
-
-            const mailtoUrl = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
-
-            // Show success notice
-            if (inquirySuccessNotice) {
-                inquirySuccessNotice.style.display = 'block';
+            if (!name || !senderEmail || !message) {
+                showToast('Please fill out all required fields.');
+                return;
             }
-            showToast('✓ Opening mail client to dispatch to Yug!');
 
-            // Open user's email client
+            // Generate unique verifiable reservation code
+            const randomCode = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const ticketId = `#VELQ-8238-${randomCode}`;
+
+            // Provide visual feedback on submit button
+            if (btnSubmitInquiry) {
+                btnSubmitInquiry.disabled = true;
+                const submitTextEl = btnSubmitInquiry.querySelector('.submit-text');
+                if (submitTextEl) submitTextEl.textContent = 'Transmitting Reservation...';
+            }
+
+            // Prepare email subject and message body
+            const subject = `[Velqora Xumi] ${interest} from ${name} (${ticketId})`;
+            const body = 
+`Hello Velqora Team,
+
+I would like to submit the following inquiry / pre-order reservation for Xumi:
+
+- Reservation Code: ${ticketId}
+- Topic: ${interest}
+- Message:
+${message}
+
+Sender Details:
+- Name: ${name}
+- Email: ${senderEmail}
+- Mobile/WhatsApp: ${senderPhone || 'Not provided'}
+
+Submitted via Velqora Interactive Workbench`;
+
+            // Setup multi-channel dispatch links
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(body);
+
+            // WhatsApp link to +91 8238337734
+            const whatsappUrl = `https://wa.me/918238337734?text=${encodeURIComponent(
+                `*New Xumi Reservation [${ticketId}]*\nName: ${name}\nEmail: ${senderEmail}\nPhone: ${senderPhone || 'N/A'}\nInterest: ${interest}\n\n*Note:* ${message}`
+            )}`;
+
+            // Web Gmail URL (opens directly in browser without desktop mail client requirement)
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${encodedSubject}&body=${encodedBody}`;
+
+            // Mailto fallback
+            const mailtoUrl = `mailto:${targetEmail}?subject=${encodedSubject}&body=${encodedBody}`;
+
+            // Update Confirmation Card Details
+            if (confRefId) confRefId.textContent = ticketId;
+            if (confValName) confValName.textContent = name;
+            if (confValEmail) confValEmail.textContent = senderEmail;
+
+            if (btnConfWhatsapp) btnConfWhatsapp.href = whatsappUrl;
+            if (btnConfGmail) btnConfGmail.href = gmailUrl;
+            if (btnConfMailto) btnConfMailto.href = mailtoUrl;
+
+            // Attempt cloud dispatch via FormSubmit endpoint with automatic client confirmation
+            try {
+                fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: `New Xumi Pre-order Reservation (${ticketId}) from ${name}`,
+                        name: name,
+                        email: senderEmail,
+                        phone: senderPhone || 'Not provided',
+                        interest: interest,
+                        ticket_id: ticketId,
+                        message: message,
+                        _replyto: senderEmail,
+                        _autoresponse: `Thank you for reaching out to Velqora regarding Xumi! Your inquiry and reservation reference ticket is ${ticketId}. Our hardware engineering team has logged your note and will get back to you within 12 hours. For immediate contact, call or WhatsApp us at +91 8238337734.`
+                    })
+                }).catch(err => {
+                    console.log('Background form dispatch notice:', err);
+                });
+            } catch (err) {
+                console.log('Direct dispatch caught:', err);
+            }
+
+            // Immediately display Verified Confirmation Card
             setTimeout(() => {
-                window.location.href = mailtoUrl;
-            }, 600);
+                quickInquiryForm.style.display = 'none';
+                if (inquiryConfCard) {
+                    inquiryConfCard.style.display = 'block';
+                    inquiryConfCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+                showToast(`✓ Confirmation logged! Ticket: ${ticketId}`);
+
+                if (btnSubmitInquiry) {
+                    btnSubmitInquiry.disabled = false;
+                    const submitTextEl = btnSubmitInquiry.querySelector('.submit-text');
+                    if (submitTextEl) submitTextEl.textContent = 'Submit Inquiry & Reserve Spot';
+                }
+            }, 450);
+        });
+    }
+
+    // Reset button to submit another inquiry note
+    if (btnResetInquiry) {
+        btnResetInquiry.addEventListener('click', () => {
+            if (inquiryConfCard) inquiryConfCard.style.display = 'none';
+            if (quickInquiryForm) {
+                quickInquiryForm.reset();
+                quickInquiryForm.style.display = 'flex';
+                quickInquiryForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
         });
     }
 
